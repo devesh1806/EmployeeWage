@@ -8,15 +8,26 @@ public class EmployeeWageComp {
 	
 	public static void main(String[] args){
 		
-		int ehours=0; //variable for total hours worked by employee
-		int ewage =0; //variable for total wage considering hours worked by employee
+		int ehours= 0 ; //variable for total hours worked by employee
+		int ewage = 0 ; //variable for total wage considering hours worked by employee
 		
-		int echeck = (int)((Math.random()*10)%3);
+		int echeck = (int)((Math.random()*10) % 3);
 		
-		if (echeck==IS_Full_Time) ehours=8;
-		else if (echeck == IS_Part_Time) ehours =4;
+		switch(echeck) {
+			case IS_Full_Time:
+				ehours= 8 ;
+				break;
+				
+			case IS_Part_Time:
+				ehours = 4 ;
+				break;
+				
+			default:
+				ehours = 0;
+				break;
+		}
+		ewage = ehours * Wage_per_hour ;
+		System.out.println("Employee wage is " + ewage );
 		
-		ewage = ehours*Wage_per_hour;
-		System.out.println("The daily Employee wage is "+ ewage);
 	}
 }
