@@ -8,33 +8,35 @@ public class EmployeeWageComp {
 	
 	public static void main(String[] args){
 		
-		int ehours= 0 ; //variable for total hours worked by employee
-		int ewage = 0 ; //variable for total wage considering hours worked by employee
+		int totalhours= 0 ; //variable for total hours worked by employee
+		int emphrs = 0 ; //variable for hours worked by employee in day
 		
-		int totalewage = 0; //variable for total wage of month 
+		int totalwdays = 0; //variable for working days 
 		
-		for (int d = 0 ; d < 20 ; d++ ) {  //condition for 20 days a month.
+		while ( totalwdays < 20 && totalhours < 100 ) {  //condition for 20 days a month.
 			
+			totalwdays += 1;
 			int echeck = (int)((Math.random()*10) % 3);
 			
 			switch(echeck) {
 				case IS_Full_Time:
-					ehours= 8 ;
+					emphrs = 8 ;
 					break;
 					
 				case IS_Part_Time:
-					ehours = 4 ;
+					emphrs = 4 ;
 					break;
 					
 				default:
-					ehours = 0;
+					emphrs = 0;
 					break;
 			}
-			ewage = ehours * Wage_per_hour ;
-			totalewage += ewage ;
-			System.out.println("Employee wage is " + ewage );
+			
+			totalhours += emphrs;
+			System.out.println("Day = " + totalwdays + " and Employee hour = " + emphrs );
+			
 		}
-		
-		System.out.println("Total Employee wage is " + totalewage );
+		int totalempwage = totalhours * Wage_per_hour ; 
+		System.out.println("Total Employee wage is " + totalempwage );
 	}
 }
