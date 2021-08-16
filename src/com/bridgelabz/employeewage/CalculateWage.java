@@ -4,8 +4,20 @@ public class CalculateWage {
 	
 	public static final int IS_Full_Time = 1;   // variable for checking employee worked full time
 	public static final int IS_Part_Time = 2; //variable for checking employee worked part time
+	public static String compname;
+	public static int Wage_per_hour;
+	public static int hours;
+	public static int days;
+	static int totalempwage;
 	
 	CalculateWage(String compname, int Wage_per_hour, int days, int hours) {
+		 this.compname=compname;
+		 this.Wage_per_hour = Wage_per_hour;
+		 this.days = days;
+		 this.hours = hours;
+	}
+	
+	public static void compute() {
 		int totalhours= 0 ; //variable for total hours worked by employee
 		int emphrs = 0 ; //variable for hours worked by employee in day
 		
@@ -31,9 +43,13 @@ public class CalculateWage {
 			}
 			
 			totalhours += emphrs;
-			
+			System.out.println("Day = " + totalwdays + " and Employee hour = " + emphrs );
 		}
-		int totalempwage = totalhours * Wage_per_hour ; 
-		System.out.println("Total Employee wage earned in " + compname + " is " + totalempwage );
+		totalempwage = totalhours * Wage_per_hour ;
+	}
+	
+	@Override
+	public String toString() {
+		return "Total Employee wage earned in " + compname + " is " + totalempwage ;
 	}
 }
